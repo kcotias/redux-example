@@ -2,7 +2,7 @@ console.clear();
 
 const {createStore, combineReducers} = Redux;
 
-// Action Creators (Costumer giving form (Actions) to Employer 'Dispatch')
+// Action Creators
 
 const createClaim = (name, amount) => {
   return {
@@ -33,8 +33,7 @@ const deletePolicy = (name) => {
   }
 }
 
-// Reducers (Different departments which the forms can go) Reducers will receive Actions, and depending opf the type of it, it will handle differently.
-
+// Reducers 
 const claimsHistory = (oldListOfClaims = [], action) => {
   if (action.type === 'CREATE_CLAIM'){
     return [...oldListOfClaims, action.payload]
@@ -63,7 +62,7 @@ const policies = (listOfPolicies = [], action) => {
   return listOfPolicies;
 }
 
-// Company Setup, CombineReducers -> Take different reducers and turn them into one coheriten unity
+//  CombineReducers -> Take different reducers and turn them into one unity
 
 const ourDepartments = combineReducers({
   claimsHistory,
